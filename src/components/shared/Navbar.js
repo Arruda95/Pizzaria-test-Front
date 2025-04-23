@@ -15,8 +15,9 @@ function Navbar() {
       <Toolbar>
         <Box sx={{ flexGrow: 1, display: 'flex', gap: 2 }}>
           <Button color="inherit" onClick={() => navigate('/')}>
-            Home
+            Página Inicial
           </Button>
+          
           <Button color="inherit" onClick={() => navigate('/menu')}>
             Cardápio
           </Button>
@@ -31,10 +32,7 @@ function Navbar() {
               Carrinho
             </Button>
           </Badge>
-        </motion.div>
-        <Button color="inherit" onClick={() => navigate('/login')}>
-          Login
-        </Button>
+        </motion.div>        
       </Toolbar>
     </AppBar>
   );

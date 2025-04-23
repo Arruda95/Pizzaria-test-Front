@@ -1,44 +1,46 @@
-import { useDispatch } from 'react-redux';
-import { addItem } from '../store/cartSlice';
-import React, { useState } from 'react';
+import { useDispatch } from 'react-redux'; // Importa o hook useDispatch do Redux para obter a função de despacho de ações
+import { addItem } from '../store/cartSlice'; // Importa a ação addItem do slice do carrinho
+import React, { useState } from 'react'; // Importa o hook useState do React
 import {
-  Container,
-  Grid,
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  Box,
-  Button,
-  CardActions,
-  MenuItem,
-  Select,
-  FormControl,
-  InputLabel,
+  Container, // Componente de contêiner do Material-UI
+  Grid, // Componente de grade do Material-UI
+  Card, // Componente de cartão do Material-UI
+  CardMedia, // Componente de mídia do cartão do Material-UI
+  CardContent, // Componente de conteúdo do cartão do Material-UI
+  Typography, // Componente de tipografia do Material-UI
+  Box, // Componente de caixa do Material-UI
+  Button, // Componente de botão do Material-UI
+  CardActions, // Componente de ações do cartão do Material-UI
+  MenuItem, // Componente de item de menu do Material-UI
+  Select, // Componente de seleção do Material-UI
+  FormControl, // Componente de controle de formulário do Material-UI
+  InputLabel, // Componente de rótulo de entrada do Material-UI
 } from '@mui/material';
-import { pizzas } from '../data/pizzas';
-import AnimatedCard from '../components/shared/AnimatedCard';
-import { useSnackbar } from 'notistack';
+import { pizzas } from '../data/pizzas'; // Importa os dados das pizzas
+import AnimatedCard from '../components/shared/AnimatedCard'; // Importa o componente de cartão animado
+import { useSnackbar } from 'notistack'; // Importa o hook useSnackbar do Notistack
 
 function Menu() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [category, setCategory] = useState('');
+  const [searchTerm, setSearchTerm] = useState(''); // Cria o estado de termo de pesquisa e sua função de atualização
+  const [category, setCategory] = useState('Todas'); // Cria o estado de categoria selecionada e sua função de atualização
 
   // Filtrando as pizzas com base no termo de busca e na categoria selecionada
   const filteredPizzas = pizzas.filter(pizza => {
-    const matchesSearch = pizza.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         pizza.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = category === '' || pizza.category === category;
-    return matchesSearch && matchesCategory;
+    const matchesSearch = pizza.name.toLowerCase().includes(searchTerm.toLowerCase()) || // Verifica se o nome da pizza corresponde ao termo de pesquisa
+                         pizza.description.toLowerCase().includes(searchTerm.toLowerCase()); // Verifica se a descrição da pizza corresponde ao termo de pesquisa
+    const matchesCategory = category === 'Todas' || pizza.category === category; // Verifica se a categoria da pizza corresponde à categoria selecionada, ou se a categoria selecionada é "Todas"
+    return matchesSearch && matchesCategory; // Retorna true se a pizza corresponde aos filtros de pesquisa e categoria
   });
 
-  const dispatch = useDispatch();
-  const { enqueueSnackbar } = useSnackbar();
+  const dispatch = useDispatch(); // Obtém a função de despacho de ações do Redux
+  const { enqueueSnackbar } = useSnackbar(); // Obtém a função de exibição de notificações do Notistack
+
+
 
   const handleAddToCart = (pizza) => {
-    dispatch(addItem(pizza));
-    enqueueSnackbar(`${pizza.name} adicionada ao carrinho!`, { 
-      variant: 'success' 
+    dispatch(addItem(pizza)); // Despacha a ação de adicionar a pizza ao carrinho
+    enqueueSnackbar(`${pizza.name} adicionada ao carrinho!`, { // Exibe uma notificação de sucesso
+      variant: 'success'
     });
   };
 
@@ -59,7 +61,7 @@ function Menu() {
                 label="Categoria"
                 onChange={(e) => setCategory(e.target.value)}
               >
-                <MenuItem value="">Todas</MenuItem>
+                <MenuItem value="Todas">Todas</MenuItem>
                 <MenuItem value="Tradicional">Tradicional</MenuItem>
                 <MenuItem value="Especial">Especial</MenuItem>
               </Select>
@@ -71,7 +73,7 @@ function Menu() {
       {/* Mapeando e exibindo as pizzas filtradas */}
       <Grid container spacing={4}>
         {filteredPizzas.map((pizza) => (
-          <Grid item key={pizza.id} xs={12} sm={6} md={4}>
+          <Grid item key={pizza.id} xs={5} sm={3} md={3} lg={2}>
             <AnimatedCard>
               <Card>
                 <CardMedia
@@ -79,6 +81,7 @@ function Menu() {
                   height="200"
                   image={pizza.image}
                   alt={pizza.name}
+                  sx={{ objectFit: 'Cover' }}
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">

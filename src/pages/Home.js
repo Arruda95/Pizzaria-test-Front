@@ -46,14 +46,14 @@ function Home() {
                 transition={{ duration: 0.5 }}
               >
                 <Typography variant="h2" component="h1" gutterBottom>
-                  As Melhores Pizzas da Cidade
+                  Amandinha Pizzaria Cajazeiras
                 </Typography>
                 <Typography variant="h5" paragraph>
                   Sabor e qualidade direto na sua casa
                 </Typography>
                 <Button
                   variant="contained"
-                  color="secondary"
+                  color="warning"
                   size="large"
                   onClick={() => navigate('/menu')}
                   sx={{ mt: 2 }}
@@ -73,7 +73,7 @@ function Home() {
                   alt="Pizza"
                   style={{
                     width: '100%',
-                    borderRadius: '12px',
+                    borderRadius: '75px',
                     boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
                   }}
                 />

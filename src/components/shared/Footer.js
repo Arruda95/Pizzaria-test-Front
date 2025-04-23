@@ -20,7 +20,7 @@ function Footer() {
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Oferecemos as melhores pizzas da cidade, com ingredientes frescos e
-              receitas tradicionais italianas.
+              receitas tradicionais.
             </Typography>
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -38,9 +38,9 @@ function Footer() {
               Contato
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Telefone: (11) 99999-9999
+              Telefone: (71) 99111-7986
               <br />
-              Email: contato@pizzaria.com
+              Email: vitor.arruda@pizzaria.com
             </Typography>
           </Grid>
         </Grid>
