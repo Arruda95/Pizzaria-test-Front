@@ -1,70 +1,179 @@
-# Getting Started with Create React App
+# 🍕 Amandinha Pizzaria Cajazeiras
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Amandinha Pizzaria](./public/pizza-hero.jpg)
 
-## Available Scripts
+## 📝 Descrição
 
-In the project directory, you can run:
+Aplicativo web da Amandinha Pizzaria Cajazeiras, desenvolvido com React e Material UI. Oferece uma experiência completa para visualização de cardápio, pedidos online e entrega de pizzas, com design responsivo e moderno.
 
-### `npm start`
+## 🚀 Tecnologias Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React**: Biblioteca JavaScript para construção de interfaces
+- **Material UI**: Biblioteca de componentes React baseada no Material Design
+- **React Router**: Roteamento de páginas
+- **Redux**: Gerenciamento de estado global
+- **Framer Motion**: Animações fluidas
+- **localStorage**: Persistência de dados para o carrinho
+- **React Hooks**: Gerenciamento de estado e ciclo de vida
+- **CSS-in-JS**: Estilização via Material UI
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ✨ Funcionalidades
 
-### `npm test`
+- **Design Responsivo**: Interface adaptada para dispositivos móveis e desktop
+- **Cardápio Interativo**: Filtragem de pizzas por categoria (salgadas, doces, etc.)
+- **Carrinho de Compras**: Adição/remoção de itens com persistência
+- **Seleção de Tamanhos**: Escolha entre tamanhos P, M e G com preços dinâmicos
+- **Checkout Simplificado**: Processo de finalização de pedido intuitivo
+- **Modo Offline**: Suporte para funcionamento com dados em cache
+- **Tratamento de Erros**: Feedback visual em caso de problemas de carregamento
+- **Animações**: Transições e efeitos visuais para melhor experiência do usuário
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🔧 Instalação e Uso
 
-### `npm run build`
+### Pré-requisitos
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (v14 ou superior)
+- npm ou yarn
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Passos para Instalação
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/meu-app-de-pizzas.git
+   cd meu-app-de-pizzas
+   ```
 
-### `npm run eject`
+2. Instale as dependências:
+   ```bash
+   npm install
+   # ou
+   yarn install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   # ou
+   yarn dev
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Acesse a aplicação em:
+   ```
+   http://localhost:3000
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Scripts Disponíveis
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- `npm run dev`: Inicia o servidor de desenvolvimento
+- `npm run build`: Cria a versão de produção
+- `npm run preview`: Visualiza a versão de produção localmente
 
-## Learn More
+## 📂 Estrutura do Projeto
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+meu-app-de-pizzas/
+├── public/                # Arquivos públicos e imagens
+├── src/                   # Código fonte do projeto
+│   ├── components/        # Componentes reutilizáveis
+│   ├── data/              # Dados estáticos (cardápio)
+│   ├── pages/             # Páginas da aplicação
+│   ├── store/             # Estado global (Redux)
+│   ├── theme/             # Configuração do tema
+│   ├── utils/             # Funções utilitárias
+│   ├── App.js             # Componente principal
+│   └── index.js           # Ponto de entrada
+└── package.json           # Dependências e scripts
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🌟 Recursos Especiais
 
-### Code Splitting
+### Design Glassmorphism
+A barra de navegação utiliza um moderno efeito de vidro (glassmorphism) com gradientes sutis para uma aparência premium.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Persistência do Carrinho
+O carrinho de compras mantém os itens mesmo após o fechamento do navegador, utilizando localStorage.
 
-### Analyzing the Bundle Size
+### Layout Otimizado
+Em telas grandes, o conteúdo é centralizado e limitado a 70% da largura para uma melhor legibilidade.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Tratamento de Erros Robusto
+Sistema avançado de detecção e recuperação de erros, com fallbacks visuais e opções de retry.
 
-### Making a Progressive Web App
+## 🤝 Contribuição
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
+3. Faça commit das suas alterações (`git commit -m 'Adiciona nova feature'`)
+4. Faça push para a branch (`git push origin feature/nova-feature`)
+5. Abra um Pull Request
 
-### Advanced Configuration
+## 📱 Contato
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**Amandinha Pizzaria Cajazeiras**
+- Telefone: (71) 9911-7986
+- Email: vitor.arnaud@pizzaria.com
 
-### Deployment
+## 📄 Licença
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Desenvolvido com ❤️ para a Amandinha Pizzaria Cajazeiras.
+
+# App de Pizzaria - Melhorias Técnicas
+
+Este documento contém um resumo das melhorias técnicas implementadas no aplicativo de pizzaria.
+
+## 1. Correções em Hooks e Gerenciamento de Estado
+
+### Problemas resolvidos:
+- Reordenação de hooks useCallback e useEffect para evitar dependências circulares
+- Adição de dependências corretas nos hooks useEffect
+- Correção do useEffect no Navbar para gerenciar corretamente o estado do drawer
+
+## 2. Melhorias no Cache e Armazenamento Local
+
+### Novos recursos:
+- Serviço de cache avançado (`cacheService.js`) para gerenciar dados persistentes
+- Controle de expiração de cache
+- Detecção de disponibilidade de localStorage/sessionStorage
+- Melhorias no hook useLocalStorage para suportar:
+  - Expiração de dados
+  - Escolha entre localStorage e sessionStorage
+  - Melhor tratamento de erros
+
+## 3. Compatibilidade de Bibliotecas
+
+### Ajustes:
+- Atualização do package.json para versões estáveis e compatíveis
+- Downgrade do React para a versão estável 18.2.0
+- Correção das versões do Material UI para 5.x
+- Alinhamento de dependências relacionadas (framer-motion, redux, etc.)
+
+## 4. Robustez e Tratamento de Erros
+
+### Melhorias:
+- Verificação da existência de recursos antes de carregá-los
+- Handlers para eventos de erro em carregamento de imagens
+- Validação de dados antes do processamento
+
+## 5. Testes Automatizados
+
+### Implementação:
+- Configuração de testes para componentes principais
+- Exemplo de teste para o componente Navbar
+- Uso de mocks para simular diferentes ambientes (mobile/desktop)
+
+## Como executar os testes
+
+```bash
+npm test
+```
+
+## Próximos passos recomendados
+
+1. Implementar testes para outros componentes principais
+2. Adicionar testes de integração para fluxos completos
+3. Configurar CI/CD para executar testes automaticamente
+4. Implementar monitoramento de erros em produção

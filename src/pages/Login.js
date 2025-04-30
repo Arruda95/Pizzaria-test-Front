@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// Importa componentes do Material UI para layout, formulário e tipografia
 import {
   Container,
   Paper,
@@ -8,13 +9,16 @@ import {
   Box,
 } from '@mui/material';
 
+// Componente de login
 function Login() {
+  // Estados para email e senha
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  // Função chamada ao submeter o formulário
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Login:', { email, password });
+    e.preventDefault(); // Evita recarregar a página
+    console.log('Login:', { email, password }); // Apenas loga no console (substitua por autenticação real)
   };
 
   return (
@@ -24,6 +28,7 @@ function Login() {
           <Typography variant="h4" component="h1" align="center" gutterBottom>
             Login
           </Typography>
+          {/* Formulário de login */}
           <form onSubmit={handleSubmit}>
             <TextField
               fullWidth

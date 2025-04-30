@@ -38,9 +38,9 @@ function Footer() {
               Contato
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Telefone: (71) 99111-7986
+              Telefone: (71) 9XXXX-XXXX
               <br />
-              Email: vitor.arruda@pizzaria.com
+              Email: two.vitor@gmail.com
             </Typography>
           </Grid>
         </Grid>

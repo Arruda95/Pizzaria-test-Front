@@ -1,31 +1,24 @@
 import * as Yup from 'yup';
 
 export const checkoutValidationSchemas = {
-  personalInfo: Yup.object().shape({
-    name: Yup.string()
-      .required('Nome é obrigatório')
-      .min(3, 'Nome muito curto'),
-    email: Yup.string()
-      .email('Email inválido')
-      .required('Email é obrigatório'),
-    phone: Yup.string()
-      .required('Telefone é obrigatório')
-      .matches(/^\(\d{2}\) \d{5}-\d{4}$/, 'Formato: (99) 99999-9999'),
+  personalInfo: Yup.object({
+    name: Yup.string().required('Nome obrigatório'),
+    phone: Yup.string().required('Telefone obrigatório'),
   }),
-  
-  address: Yup.object().shape({
-    address: Yup.string()
-      .required('Endereço é obrigatório')
-      .min(5, 'Endereço muito curto'),
-    number: Yup.string()
-      .required('Número é obrigatório'),
-    neighborhood: Yup.string()
-      .required('Bairro é obrigatório'),
-    complement: Yup.string(),
+  addressCepOnly: Yup.object({
+    user_cep: Yup.string()
+      .required('CEP obrigatório')
+      .matches(/^\d{5}-?\d{3}$/, 'CEP inválido'),
   }),
-  
-  payment: Yup.object().shape({
-    paymentMethod: Yup.string()
-      .required('Selecione uma forma de pagamento'),
+  address: Yup.object({
+    user_cep: Yup.string()
+      .required('CEP obrigatório')
+      .matches(/^\d{5}-?\d{3}$/, 'CEP inválido'),
+    user_address: Yup.string().required('Endereço obrigatório'),
+    user_number: Yup.string().required('Número obrigatório'),
+    user_neighborhood: Yup.string().required('Bairro obrigatório'),
+  }),
+  payment: Yup.object({
+    paymentMethod: Yup.string().required('Selecione uma forma de pagamento'),
   }),
 };

@@ -1,5 +1,7 @@
 import React from 'react';
+// Importa hooks do Redux para acessar e modificar o estado do carrinho
 import { useSelector, useDispatch } from 'react-redux';
+// Importa componentes do Material UI para layout, tabela e botões
 import {
   Container,
   Typography,
@@ -14,26 +16,34 @@ import {
   Box,
   IconButton,
 } from '@mui/material';
+// Ícone de lixeira para remover item
 import DeleteIcon from '@mui/icons-material/Delete';
+// Importa ações do slice do carrinho
 import { removeItem, updateQuantity } from '../store/cartSlice';
+// Hook de navegação do React Router
 import { useNavigate } from 'react-router-dom';
+// Componente para selecionar quantidade
 import QuantitySelector from '../components/shared/QuantitySelector';
 
+// Componente da página do carrinho
 function Cart() {
-  const cart = useSelector((state) => state.cart);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const cart = useSelector((state) => state.cart); // Obtém o carrinho do Redux
+  const dispatch = useDispatch(); // Para despachar ações
+  const navigate = useNavigate(); // Para navegação programática
 
+  // Atualiza a quantidade de um item
   const handleUpdateQuantity = (id, quantity) => {
     if (quantity >= 1) {
       dispatch(updateQuantity({ id, quantity }));
     }
   };
 
+  // Remove um item do carrinho
   const handleRemoveItem = (id) => {
     dispatch(removeItem(id));
   };
 
+  // Se o carrinho estiver vazio, mostra mensagem e botão para cardápio
   if (cart.items.length === 0) {
     return (
       <Container maxWidth="md" sx={{ py: 8 }}>
@@ -52,6 +62,7 @@ function Cart() {
     );
   }
 
+  // Renderiza a tabela do carrinho
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
       <Typography variant="h4" gutterBottom>
@@ -70,6 +81,7 @@ function Cart() {
             </TableRow>
           </TableHead>
           <TableBody>
+            {/* Renderiza cada item do carrinho */}
             {cart.items.map((item) => (
               <TableRow key={item.id}>
                 <TableCell>{item.name}</TableCell>
@@ -96,6 +108,7 @@ function Cart() {
                 </TableCell>
               </TableRow>
             ))}
+            {/* Linha do total */}
             <TableRow>
               <TableCell colSpan={3}>
                 <Typography variant="h6">Total</Typography>
@@ -110,6 +123,7 @@ function Cart() {
         </Table>
       </TableContainer>
 
+      {/* Botões para continuar comprando ou finalizar pedido */}
       <Box sx={{ mt: 4, display: 'flex', justifyContent: 'flex-end', gap: 2 }}>
         <Button
           variant="outlined"

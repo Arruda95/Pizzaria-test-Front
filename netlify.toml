@@ -1,19 +1,39 @@
+# Configuração de deploy para o Netlify
+# Este arquivo define as configurações para o ambiente de hospedagem Netlify
+
+# Configurações de build - define comandos e diretórios para o processo de build
 [build]
+  # Comando para construir o site
   command = "npm run build"
+  # Diretório onde os arquivos estáticos do site serão gerados
   publish = "build"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
+# Variáveis de ambiente para o processo de build
 [build.environment]
+  # Versão do Node.js a ser utilizada
   NODE_VERSION = "16"
 
+# Configurações de redirecionamento para Single Page Applications (SPA)
+[[redirects]]
+  # De qual caminho redirecionar
+  from = "/*"
+  # Para qual caminho redirecionar
+  to = "/index.html"
+  # Código de status HTTP
+  status = 200
+  # Forçar o redirecionamento independente da existência do caminho
+  force = true
+
+# Cabeçalhos personalizados para segurança e cache
 [[headers]]
+  # Define cabeçalhos para todos os arquivos
   for = "/*"
   [headers.values]
+    # Previne que o site seja exibido em um iframe (proteção contra clickjacking)
     X-Frame-Options = "DENY"
+    # Ajuda a prevenir ataques XSS
     X-XSS-Protection = "1; mode=block"
+    # Previne que o navegador determine o tipo MIME erroneamente
     X-Content-Type-Options = "nosniff"
+    # Controla como as informações de referência são compartilhadas
     Referrer-Policy = "strict-origin-when-cross-origin"
