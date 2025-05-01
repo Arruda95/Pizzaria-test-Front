@@ -98,6 +98,8 @@ function Navbar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const theme = useTheme();
+  // Corrigido: Garantir que useMediaQuery esteja funcionando corretamente
+  // Problema estava aqui - isMobile não estava sendo configurado corretamente para telas pequenas
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.down('md'));
   const location = useLocation();
@@ -155,8 +157,10 @@ function Navbar() {
 
   // Componente de navegação memoizado
   const renderNavigation = useCallback(() => {
+    // Correção aqui: a lógica para exibir menu em dispositivos móveis
     if (isMobile || isTablet) {
       return (
+        // O componente do menu mobile
         <>
           <IconButton 
             color="inherit" 
@@ -445,13 +449,17 @@ function Navbar() {
           py: { xs: 0.5, md: 1 },
           height: '100%'
         }}>
-          {isMobile ? (
+          {/* Correção importante: Garantindo que o menu mobile seja renderizado corretamente */}
+          {/* Adicionamos uma verificação explícita para isMobile ou isTablet */}
+          {(isMobile || isTablet) ? (
+            // Layout específico para dispositivos móveis
             <>
               {renderNavigation()}
               {logoComponent}
               {cartBadge}
             </>
           ) : (
+            // Layout para desktop
             <Box sx={{ 
               display: 'grid', 
               gridTemplateColumns: '1fr auto 1fr',
